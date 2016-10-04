@@ -14,6 +14,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     @IBOutlet weak var coolTableView: UITableView!
     
+    var emoji=["😀 Smile","💂🏻 Dont Touch Me","👹 Devil","🤔 Thinking","💩 Choclate Icecream?","👽 Trump?","🤖 Robot","👎🏻 My Grade in Physics"]
+    
+    
+    
+    
+    
+    
+    
     
     
 
@@ -24,8 +32,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         coolTableView.dataSource=self
             // used to define the table
         coolTableView.delegate=self
-            // and contents
-        
+            // ^ builds the data source within the code
         
         
         
@@ -36,17 +43,21 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-      return 100
+      return emoji.count
+        
+        //^ counts the number of things in the array
         
     }
             // ^looks for somewhwere the number of rows( an integer)^
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        print(indexPath.row)
+        
         let cell=UITableViewCell()
             //^ same as assigning a value
         
-        cell.textLabel?.text=" 💩 hello"
+        cell.textLabel?.text=emoji[indexPath.row]
         
         return cell
     }
